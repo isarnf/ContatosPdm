@@ -33,8 +33,16 @@ class ContactController(private val mainActivity: MainActivity) { //controller e
             }
         }.start()
     }
-    fun editContact(contact: Contact) = contactDaoImpl.updateContact(contact)
-    fun removeContact(contact: Contact) = contactDaoImpl.deleteContact(contact)
+    fun editContact(contact: Contact) {
+        Thread{
+            contactDaoImpl.updateContact(contact)
+        }.start()
+    }
+    fun removeContact(contact: Contact) {
+        Thread{
+            contactDaoImpl.deleteContact(contact)
+        }.start()
+    }
 
 
 }
