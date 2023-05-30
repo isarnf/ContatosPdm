@@ -9,9 +9,9 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 @Entity
 data class Contact(
-        @PrimaryKey(autoGenerate = true) val id: Int?,
-        @NonNull var name: String,
-        @NonNull var address: String,
-        @NonNull var phone: String,
-        @NonNull var email: String,
+        @PrimaryKey(autoGenerate = true) val id: Int? = -1,
+        @NonNull var name: String = "",
+        @NonNull var address: String = "",
+        @NonNull var phone: String = "",
+        @NonNull var email: String = "",
 ): Parcelable

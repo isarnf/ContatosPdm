@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "42254881915",
+    "project_id": "contatospdmbackendforti-8369a",
+    "storage_bucket": "contatospdmbackendforti-8369a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:42254881915:android:02eb684cfcbeab944e7ede",
+        "android_client_info": {
+          "package_name": "br.edu.scl.ifsp.ads.contatospdm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "42254881915-ns6d14h4qismtkrgkfhsha153govf1ra.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.edu.scl.ifsp.ads.contatospdm",
+            "certificate_hash": "6ac3a29813ee6ff80661a2a243486f065e5bdc7b"
+          }
+        },
+        {
+          "client_id": "42254881915-fl2h076kasvl7qlosdh69791oucvpdmv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACs4LbF3FA3Nqr7PB5YaI_5RCi5SabT_Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "42254881915-fl2h076kasvl7qlosdh69791oucvpdmv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

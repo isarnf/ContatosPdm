@@ -77,9 +77,15 @@ class MainActivity : BaseActivity(), OnContactClickListener {
                     }
                     contactController.getContacts()
                     contactAdapter.notifyDataSetChanged()
+
                 }
             }
         }
+
+        Thread{
+            Thread.sleep(3000)
+            contactController.getContacts()
+        }.start()
 
     }
 
@@ -92,6 +98,10 @@ class MainActivity : BaseActivity(), OnContactClickListener {
         return when(item.itemId){
             R.id.addContactMi -> {
                 carl.launch(Intent(this, ContactActivity::class.java))
+                true
+            }
+            R.id.refreshContactsMi -> {
+                contactController.getContacts()
                 true
             }
             else -> false

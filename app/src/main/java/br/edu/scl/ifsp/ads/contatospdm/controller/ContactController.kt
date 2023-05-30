@@ -1,18 +1,16 @@
 package br.edu.scl.ifsp.ads.contatospdm.controller
 
 import androidx.room.Room
-import br.edu.scl.ifsp.ads.contatospdm.model.Contact
-import br.edu.scl.ifsp.ads.contatospdm.model.ContactDao
-import br.edu.scl.ifsp.ads.contatospdm.model.ContactDaoRoom
+import br.edu.scl.ifsp.ads.contatospdm.model.*
 import br.edu.scl.ifsp.ads.contatospdm.model.ContactDaoRoom.Constants.CONTACT_DATABASE_FILE
-import br.edu.scl.ifsp.ads.contatospdm.model.ContactDaoSqlite
 import br.edu.scl.ifsp.ads.contatospdm.view.MainActivity
 
 class ContactController(private val mainActivity: MainActivity) { //controller específico da Main Activity
     //private val contactDaoImpl: ContactDao = ContactDaoSqlite(mainActivity)
-    private val contactDaoImpl: ContactDao = Room.databaseBuilder(
-        mainActivity, ContactDaoRoom::class.java, CONTACT_DATABASE_FILE
-    ).build().getContactDao()
+//    private val contactDaoImpl: ContactDao = Room.databaseBuilder(
+//        mainActivity, ContactDaoRoom::class.java, CONTACT_DATABASE_FILE
+//    ).build().getContactDao()
+    private val contactDaoImpl: ContactDao = ContactDaoRtDbFb()
 
     fun insertContact(contact: Contact) {
         Thread {

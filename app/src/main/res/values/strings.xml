@@ -10,4 +10,5 @@
     <string name="contact_info">Informações do contato</string>
     <string name="remove_contact">Remover contato</string>
     <string name="edit_contact">Editar contato</string>
+    <string name="refresh_contacts">Atualizar lista de contatos</string>
 </resources>

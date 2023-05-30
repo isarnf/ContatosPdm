@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-parcelize'
     id 'kotlin-kapt'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -51,4 +52,9 @@ dependencies {
     implementation "androidx.room:room-runtime:2.5.1"
     annotationProcessor "androidx.room:room-compiler:2.5.1"
     kapt "androidx.room:room-compiler:2.5.1"
+
+    //Bill of materials do firebase = bibliotecas fundamentais do firebase
+    implementation platform('com.google.firebase:firebase-bom:32.0.0')
+    //Bibliotecas para Realtime Database
+    implementation 'com.google.firebase:firebase-database-ktx'
 }
