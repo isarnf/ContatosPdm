@@ -14,4 +14,10 @@
         android:title="@string/refresh_contacts"
         app:showAsAction="ifRoom" />
 
+    <item
+        android:id="@+id/signOutMi"
+        android:icon="@drawable/ic_sign_out"
+        android:title="Deslogar"
+        app:showAsAction="ifRoom" />
+
 </menu>

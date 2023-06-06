@@ -1,9 +1,8 @@
 package br.edu.scl.ifsp.ads.contatospdm.view
 
 import android.content.Intent
-import android.os.Build
+import android.os.*
 import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.view.ContextMenu
 import android.view.Menu
 import android.view.MenuItem
@@ -22,6 +21,7 @@ import br.edu.scl.ifsp.ads.contatospdm.adapter.OnContactClickListener
 import br.edu.scl.ifsp.ads.contatospdm.controller.ContactController
 import br.edu.scl.ifsp.ads.contatospdm.databinding.ActivityMainBinding
 import br.edu.scl.ifsp.ads.contatospdm.model.Contact
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : BaseActivity(), OnContactClickListener {
     private val amb: ActivityMainBinding by lazy{
@@ -44,6 +44,8 @@ class MainActivity : BaseActivity(), OnContactClickListener {
     private val contactController: ContactController by lazy{
         ContactController(this)
     }
+
+    lateinit var updateViewsHandler: Handler
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -82,10 +84,16 @@ class MainActivity : BaseActivity(), OnContactClickListener {
             }
         }
 
-        Thread{
-            Thread.sleep(3000)
+        //Utiliza uma thread como no jeito abaixo, mas não de forma explícita (a partir de um handler)
+        updateViewsHandler = Handler(Looper.myLooper()!!){ msg ->
             contactController.getContacts()
-        }.start()
+            true
+        }
+        updateViewsHandler.sendMessageDelayed(Message(), 3000)
+//        Thread{
+//            Thread.sleep(3000)
+//            contactController.getContacts()
+//        }.start()
 
     }
 
@@ -102,6 +110,12 @@ class MainActivity : BaseActivity(), OnContactClickListener {
             }
             R.id.refreshContactsMi -> {
                 contactController.getContacts()
+                true
+            }
+            R.id.signOutMi -> {
+                FirebaseAuth.getInstance().signOut()
+                googleSignInClient.signOut()
+                finish()
                 true
             }
             else -> false
@@ -138,4 +152,29 @@ class MainActivity : BaseActivity(), OnContactClickListener {
         contactAdapter.notifyDataSetChanged()
         Toast.makeText(this, "Contato removido!", Toast.LENGTH_LONG).show()
     }
+
+    override fun onStart() {
+        super.onStart()
+        if (FirebaseAuth.getInstance().currentUser != null){
+            val email = FirebaseAuth.getInstance().currentUser?.email
+            Toast.makeText(this, "Bem-vindo, $email!", Toast.LENGTH_LONG).show()
+        }else{
+            Toast.makeText(this, "Não há usuário autenticado!", Toast.LENGTH_LONG).show()
+            finish()
+        }
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

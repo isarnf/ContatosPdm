@@ -55,6 +55,14 @@ dependencies {
 
     //Bill of materials do firebase = bibliotecas fundamentais do firebase
     implementation platform('com.google.firebase:firebase-bom:32.0.0')
+
     //Bibliotecas para Realtime Database
     implementation 'com.google.firebase:firebase-database-ktx'
+
+    //Autenticação co o Firebase
+    implementation 'com.google.firebase:firebase-auth-ktx:22.0.0'
+
+    //Autenticação com GPS (google play services)
+    implementation 'com.google.android.gms:play-services-auth:20.5.0'
+
 }
